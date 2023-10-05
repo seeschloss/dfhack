@@ -2784,8 +2784,6 @@ bool MemoryPatcher::verifyAccess(void *target, size_t count, bool write)
     unsigned end = start+1;
     while (end < ranges.size() && ranges[end].start < eptr)
     {
-        if (ranges[end].start != ranges[end-1].end)
-            return false;
         end++;
     }
     if (ranges[end-1].end < eptr)
